@@ -2772,7 +2772,6 @@ var selfcheck = (function () {
    Part 3 is four gated problems. Page-local pieces: the checks panel (checksHTML), gating helpers (done, picked). */
 
 var PAUL_NOTES = 'https://tutorial.math.lamar.edu/Classes/CalcI/Continuity.aspx';
-var PAUL_PROBS = 'https://tutorial.math.lamar.edu/Problems/CalcI/Continuity.aspx';
 var FIX_CHECKS = ['#def-checks', 'Reread the three checks'];
 var FIX_GALLERY = ['#fig-gallery', 'See the gallery of graphs'];
 
@@ -3070,7 +3069,7 @@ function checksDefHTML() {
     ['`f(a)` is defined.', '`lim{x→a} f(x)` exists. Both one-sided limits are the same number.', '`lim{x→a} f(x) = f(a)`.'].map(function (t) { return '<li>' + P(t) + '</li>'; }).join('') + '</ol></div></div>';
 }
 function page() {
-  return header('Continuity Checker', [['#sec-checks', 'Three Checks'], ['#sec-cutoff', 'Cutoff'], ['#sec-practice', 'Practice'], ['#sec-back', 'Back to Paul']]) +
+  return header('Continuity Checker', [['#sec-checks', 'Three Checks'], ['#sec-cutoff', 'Cutoff'], ['#sec-practice', 'Practice'], ['#sec-back', 'Back to Unit 4']]) +
     '<main id="top">' + hero({ kicker: 'Calculus I · Unit 4', title: 'Continuity Checker',
       dek: 'Paul’s [Continuity](' + PAUL_NOTES + ') notes define continuity with one equation, `lim{x→a} f(x) = f(a)`. Open the graphs below after his Example 1 to see the three checks inside that equation, then test piecewise functions and classify breaks yourself.' }) +
     sec('sec-checks', '1', 'Three Checks at a Point', '') + checksDefHTML() +
@@ -3079,14 +3078,14 @@ function page() {
     col(toggle('gal', CASES.map(function (c) { return 'Graph ' + c.key; }), { label: 'Choose a graph', redraw: ['fig-gallery', 'gal-panel'] }) +
       graph('fig-gallery', galleryGraph) + card('', blk('gal-panel', galPanelHTML), 'card-gallery')) +
     sec('sec-cutoff', '2', 'Continuity at a Cutoff', '') +
-    prose('', ['Paul’s Practice Problems 5 to 7 ask whether a piecewise function is continuous where its formula changes. Each one-sided limit uses the piece on its own side, and `f(2)` uses the piece whose condition includes 2.']) +
+    prose('', ['A piecewise function can break where its formula changes. Each one-sided limit uses the piece on its own side, and `f(2)` uses the piece whose condition includes 2.']) +
     col('<div class="cc-disp">' + L(['`f(x) = x^2 "for" x < 2`', '`f(x) = 3x + c "for" x ≥ 2`']) + '</div>' + blk('cut-q', cutQHTML) +
       slider('c', { label: 'The constant `c`', min: -6, max: 2, step: 1, value: 0, fmt: function (v) { return 'c = ' + fmtNum(v); }, redraw: ['fig-cutoff', 'cut-read'] }) +
       graph('fig-cutoff', cutGraph) + blk('cut-read', cutReadHTML)) +
     sec('sec-practice', '3', 'Practice', '') +
     col(blk('p1', p1HTML) + blk('p2', p2HTML) + blk('p3', p3HTML) + blk('p4', p4HTML)) +
-    sec('sec-back', '', 'Back to Paul', '') +
-    prose('', ['Return to Paul’s [Continuity practice problems](' + PAUL_PROBS + ') and work Problems 5 to 7, which test piecewise functions at their cutoffs.']) +
+    sec('sec-back', '', 'Back to Unit 4', '') +
+    prose('', ['Return to section 1 of Unit 4: Continuity and the Derivative and continue with its notes on the Intermediate Value Theorem.']) +
     '</main>';
 }
 /* register every choice up front, including the gated ones, so the node check and self-check see all of them */
